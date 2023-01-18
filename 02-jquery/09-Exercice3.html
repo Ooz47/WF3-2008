@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice Carousel</title>
+
+    <style type="text/css">
+        #citations {
+            margin: 2rem;
+        }
+
+        .citation {
+            padding: 10px 0;
+        }
+
+        .texte {
+            font-style: italic;
+            font-size: 1.2rem;
+        }
+
+        .auteur {
+            font-weight: 600;
+            font-size: .9rem;
+            padding-top: 10px;
+        }
+
+        #carousel {
+            width: 35%;
+            display: flex;
+            align-content: flex-start;
+            justify-content: space-around;
+            align-items: center;
+            margin: auto;
+        }
+
+        #prec,
+        #suiv {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="carousel">
+        <div id="prec">
+            <</div> <div id="citations">
+                <div class="citation">
+                    <div class="texte">Le bonheur ne s'acquiert pas, il ne réside pas dans les apparences, chacun
+                        d'entre
+                        nous le construit à chaque instant de sa vie avec son coeur.
+                    </div>
+                    <div class="auteur">Proverbe africain </div>
+                </div>
+                <div class="citation">
+                    <div class="texte">Le premier savoir est le savoir de mon ignorance : c'est le début de
+                        l'intelligence.
+                    </div>
+                    <div class="auteur">Socrate</div>
+                </div>
+                <div class="citation">
+                    <div class="texte">À vaincre sans péril, on triomphe sans gloire.
+                    </div>
+                    <div class="auteur">Pierre Corneille </div>
+                </div>
+               
+        </div>
+        <div id="suiv">></div>
+    </div>
+
+
+
+    <!-- Librairie jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+
+    <!-- // Solution vu en cours -->
+    <!-- <script>
+        $(document).ready(function () {
+
+            var citationnum = 0;
+            var touteLesCitations = $('.citation');
+            touteLesCitations.eq(1).css('display', 'none');
+            touteLesCitations.eq(2).css('display', 'none');
+
+            $("#suiv").click(function () {
+                if (citationnum != 2) {
+                    citationnum++;
+                } else {
+                    citationnum = 0;
+                }
+                touteLesCitations.css('display', 'none');
+                touteLesCitations.eq(citationnum).css('display', 'block');
+            });
+
+            $("#prec").click(function () {
+                if (citationnum != 0) {
+                    citationnum--;
+                } else {
+                    citationnum = 2;
+                }
+                touteLesCitations.css('display', 'none');
+                touteLesCitations.eq(citationnum).css('display', 'block');
+            });
+        });
+    </script> -->
+
+
+    <!-- // Meilleur solution car fonctionne quelque soit le nombre de citations -->
+    <script>
+        $(document).ready(function () {
+
+            var citationnum = 0;
+            var touteLesCitations = $('.citation');
+            var touteLesCitationsNombre = $('.citation').length;
+            console.log(touteLesCitationsNombre);
+
+            for (i=1;i<touteLesCitationsNombre;i++){
+                console.log(i);
+                touteLesCitations.eq(i).css('display', 'none');
+            }
+
+            $("#suiv").click(function () {
+                if (citationnum != touteLesCitationsNombre-1) {
+                    citationnum++;
+                } else {
+                    citationnum = 0;
+                }
+                touteLesCitations.css('display', 'none');
+                touteLesCitations.eq(citationnum).css('display', 'block');
+            });
+
+            $("#prec").click(function () {
+                if (citationnum != 0) {
+                    citationnum--;
+                } else {
+                    citationnum = touteLesCitationsNombre-1;
+                }
+                touteLesCitations.css('display', 'none');
+                touteLesCitations.eq(citationnum).css('display', 'block');
+            });
+        });
+    </script>
+
+</body>
+
+</html>
