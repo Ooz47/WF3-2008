@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload</title>
+</head>
+
+<body>
+
+ 
+        <input type="file" />
+   
+
+
+    <script>
+        let fichierUploadInput = document.getElementsByTagName('input')[0];
+        fichierUploadInput.addEventListener('change', telechargement);
+       
+
+
+
+        function telechargement() {
+
+            // On utilise l'API file disponible dans navigateur
+            let fichierSelectionne = this.files[0];
+            //  let fichierSelectionne = fichierUploadInput.files[0];
+            console.log(fichierSelectionne);
+
+           let xhr = new XMLHttpRequest();
+
+            xhr.upload.onprogress = (evenement) => {
+            // console.log(evenement);
+            console.log(`Transfert de ${evenement.loaded} sur ${evenement.total}`);
+
+            }
+
+            //onloadend quand tous les evenements liés à onprogress sont terminés
+            xhr.onloadend = () => {
+                // if(true){
+                if(xhr.status === 200){
+                    document.write('Fichier transféré avec succès');
+
+                } else {
+                    console.log('Erreur' + xhr.status);
+                    console.log('Erreur' + xhr);
+                }
+            }
+
+
+            xhr.open('POST','fakeurl');
+
+            xhr.send(fichierSelectionne);
+
+        };
+    </script>
+</body>
+
+</html>

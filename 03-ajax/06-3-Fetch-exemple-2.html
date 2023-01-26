@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemple 2</title>
+</head>
+
+<body>
+
+    <div id="conteneur">
+        <h1>Fetch : Exemple 2</h1>
+
+    </div>
+
+
+    <script>
+        // //atteention chaque API peut avoir headers requis ou par défault
+        let url = "https://jsonplaceholder.typicode.com/todos";
+
+        // POUR MODIFIER LES HEADERS
+        let mesHeaders = {
+            "Accept": "application/json" //OU text/html OU text/plain   
+        };
+
+        fetch(url, {
+                // headers:mesHeaders
+            })
+            .then((res) => {
+                // console.log(res.json());
+                // return res.text(); //headers est text/html
+                return res.json(); //
+            })
+            .then((data) => {
+                console.log(data);
+
+            });
+
+
+       
+    </script>
+</body>
+
+</html>

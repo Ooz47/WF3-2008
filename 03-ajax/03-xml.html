@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemple avec XML</title>
+</head>
+
+<body>
+    <h1>Modification de contenu avec AJAX</h1>
+
+    <div id="conteneur">
+        <button onclick="chargeXml()"> Charge le contenu de mon fichier XML</button>
+    </div>
+
+    <div id="biblio">
+        
+    </div>
+
+    <script>
+        function chargeXml() {
+            let xhr = new XMLHttpRequest();
+            xhr.open("GET", "./03-data.xml", true);
+            xhr.onload = function () {
+                console.log(this);
+
+                //Utilisation du XMLParser
+                let XMLparser = new DOMParser();
+
+                //On convertit notre chaine de caractère en arborescence de de Noeud
+                let xmlArborescence = XMLparser.parseFromString(this.responseText, 'text/xml')
+                console.log(xmlArborescence);
+
+                // Afficher les animaux
+                console.log(xmlArborescence.getElementsByTagName('animal'));
+
+                let tousLesAnimaux = xmlArborescence.getElementsByTagName('animal');
+              
+                //Efface contenu de conteneur
+                document.getElementById('conteneur').innerHTML = '';
+
+                //Boucle While
+                let j = 0;
+                while (j < tousLesAnimaux.length) {
+                //Afficher le Type
+                    // console.log(tousLesAnimaux[j].childNodes['1'].textContent);
+                    document.getElementById('conteneur').innerHTML += "<b>Type d'animal</b><span>: " +
+                    tousLesAnimaux[j].childNodes['1'].textContent + "</span><br />";
+                    document.getElementById('conteneur').innerHTML += "<b>Race</b><span>: " + tousLesAnimaux[j].childNodes['3'].textContent + "</span><br /><br />";
+                    j++;
+                }
+            }
+            xhr.send();
+        };
+    </script>
+
+
+<!-- <script>
+    // Afficher pour chaque livre de data-exo.xml, le titre , l'auteur puis la date de publication dans la div id biblio
+
+    function chargeXml() {
+            let xhr = new XMLHttpRequest();
+            xhr.open("GET", "./03-data-exo.xml", true);
+            xhr.onload = function () {
+                console.log(this);
+
+                //Utilisation du XMLParser
+                let XMLparser = new DOMParser();
+
+                //On convertit notre chaine de caractère en arborescence de de Noeud, second parametre type de données mimeType
+                let xmlArborescence = XMLparser.parseFromString(this.responseText, 'text/xml')
+                console.log(xmlArborescence);
+
+                // Afficher les livres
+                console.log(xmlArborescence.getElementsByTagName('livre'));
+
+                let tousLesLivres = xmlArborescence.getElementsByTagName('livre');
+
+                //Boucle While
+                let j = 0;
+                while (j < tousLesLivres.length) {
+                //Afficher le Type
+                    document.getElementById('biblio').innerHTML += "<b>Titre</b><span>: " + tousLesLivres[j].childNodes['1'].textContent + "</span><br />";
+                    document.getElementById('biblio').innerHTML += "<b>Auteur</b><span>: " + tousLesLivres[j].childNodes['5'].textContent + "</span><br />";
+                    document.getElementById('biblio').innerHTML += "<b>Date de publication</b><span>: " + tousLesLivres[j].childNodes['3'].textContent + "</span><br /><br />";
+                    j++;
+                }
+            }
+            xhr.send();
+        };
+
+</script> -->
+</body>
+
+</html>

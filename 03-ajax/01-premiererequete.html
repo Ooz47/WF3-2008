@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Première requête</title>
+</head>
+<body>
+
+    <div id="conteneur">
+        <h1>Modification de texte avec AJAX</h1>
+        <!-- javascript inline -->
+        <button onclick="chargeMessage()"> Change le contenu</button>
+    </div>
+    
+
+    <script>
+        function chargeMessage(){
+            //On crée un objet XMLHttpRequest
+            let xhr = new XMLHttpRequest();
+            //On accede à notre ressource en GET de façon asynchrone
+            xhr.open("GET","./fichiers/message.txt",true);
+            //Quand on a une réponse
+            xhr.onload = function () {
+                // console.log(this); // this fait référence à xhr
+
+                document.getElementById('conteneur').innerHTML = this.responseText;
+            }
+            // On envoie notre requete
+            xhr.send();
+        };
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+
+<h1>AJAX</h1>
+<p>AJAX => Asynchronous Javascript And XML</p>
+<p>AJAX n'est pas un language de programmation </p>
+<p>AJAX utilise XMLHtttpRequest pour communiquer avec un serveur</p>
+<p>Accrochez vous !</p>

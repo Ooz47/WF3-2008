@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+</head>
+<body>
+    
+    <div id="conteneur">
+        <button onclick="chargeJson()"> Charge le contenu de mon fichier Json</button>
+    </div>
+
+    <div id="donnees">
+        
+    </div>
+
+
+    <script>
+
+//  Rappel       
+/*// -- Créer un Objet en Javascript
+
+/*
+Un objet respecte toujours le format 
+{
+    propriete : valeur
+}
+
+ou, la valeur peut être de plusieurs type : 
+{
+    unBooleen : true,
+    unNombre: 18,
+    unString : 'Je suis un string',
+    unObjet: {
+        propriete: valeur
+    },
+    unTableau: [
+        'Matthieu','Marc','Luc'
+    ]
+}
+*/
+
+//Objet
+
+let voiture = {
+    marque: "bmw",
+    annee: 2022,
+    couleur: "rouge"
+};
+
+// Accès aux propriétés
+// console.log(voiture.marque);
+
+//Tableau
+let voituresSympas = ["bmw", "toyota","audi"];
+// Acces aux valeurs
+// console.log(voituresSympas[2]);
+
+//On peut les combiner
+let variable = [{},{},{}];
+
+
+//Remarque sur apostrophe autour des propriétés
+let voitures = [
+    {
+        "marque": "bmw",
+        "annee": 2022,
+        "couleur": "rouge"  
+    },
+    {
+        "marque": "toyota",
+        "annee": 2020,
+        "couleur": "bleu"  
+    },
+    {
+        "marque": "audi",
+        "annee": 2021,
+        "couleur": "noir"  
+    }
+];
+// console.log(voitures[0].annee);
+// console.log(voitures);
+
+// Cette structure de données s'appelle le format : JSON !
+// C'est le format le plus utilisé pour échanger des données.
+// Il est facile à reconnaitre, ce sont des objets dans un tableau...
+
+// Mais objet Js différents de objets JSON
+//JS
+let utilisateur = {
+    prenom : "Yannick",
+    nom : "Abaul",
+    nomComplet : function(){
+        console.log("Prénom: "+ this.prenom +", Nom: " + this.nom );
+    }
+
+};
+
+// utilisateur.nomComplet();
+
+//Json
+// '[{"prenom": "Yannick"},{"nom": "Yannick"}]'
+
+//Pour convertir
+// D'un objet JSON vers objet Javascript
+// JSON.parse()
+// De objet Javascript vers objet JSON
+// JSON.stringify();
+
+
+let donneesJson = '[{"prenom": "Yannick"},{"nom": "Yannick"}]';
+
+// console.log(donneesJson);
+let objetJs = JSON.parse(donneesJson);
+// console.log(objetJs);
+
+//Comparaison avec xml
+// let JSONAnimaux = '{"animaux" : [   {"animal" : {"type":"chien", "race":"Berger Malinois"}},   {"animal" :{"type":"chien", "race":"Pittbull"}}]}';
+let JSONAnimaux = '{"animaux" : [    {"type":"chien", "race":"Berger Malinois"},   {"type":"chien", "race":"Pittbull"}]}';
+// console.log(JSON.parse(JSONAnimaux));
+
+
+//Exo
+//  Données au format Json du  baromètre des résultats de l'action publique accessible publiquement
+//  https://raw.githubusercontent.com/etalab/barometre-resultats-donnees/master/json/barometre-resultats-synthese-regional.json
+
+//      Créer un bouton qui affiche dans une div: 
+//     - Pour Les résultats 400 à 450
+//     - l'index, le libellé de la région ,la mesure, et l'indicateur
+
+
+function chargeJson() {
+            let xhr = new XMLHttpRequest();
+            xhr.open("GET", "https://raw.githubusercontent.com/etalab/barometre-resultats-donnees/master/json/barometre-resultats-synthese-regional.json", true);
+            xhr.open
+            xhr.onload = function () {
+                // console.log(this);
+
+                let donnees = JSON.parse(this.responseText);
+
+                // //Boucle While
+                let j = 400;
+                while (j <= 450) {
+                    // console.log(j);
+                    // console.log(donnees[j]);
+                    // console.log(donnees[j].mesure);
+                    // console.log(donnees[j].libelle_region);
+                    // console.log(donnees[j].indicateur);
+                    document.getElementById('donnees').innerHTML += "<b>Index</b><span>: " + j + "</span><br />";
+                    document.getElementById('donnees').innerHTML += "<b>Libellé de la Région</b><span>: " + donnees[j].libelle_region + "</span><br />";
+                    document.getElementById('donnees').innerHTML += "<b>Mesure</b><span>: " + donnees[j].mesure + "</span><br />";
+                    document.getElementById('donnees').innerHTML += "<b>Indicateur</b><span>: " + donnees[j].indicateur + "</span><br /><br />";
+                    j++;
+                }
+            }
+            xhr.send();
+        };
+
+    </script>
+</body>
+</html>

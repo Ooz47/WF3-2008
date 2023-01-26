@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XHR</title>
+</head>
+
+<body>
+
+    <div id="conteneur">
+        <h1>Modification de texte avec AJAX</h1>
+        <button onclick="chargeMessage()"> Change le contenu</button>
+    </div>
+
+
+    <script>
+        function chargeMessage() {
+            //On crée un objet XMLHttpRequest
+            let xhr = new XMLHttpRequest();
+            //On accede à notre ressource en GET de façon asynchrone
+            let url = "./fichiers/message.txt";
+            let method = "GET";
+            xhr.open(method, url);
+
+            // xhr.responseType = "json";
+            // Quand on a une réponse
+
+
+            // //Gestionnaire onreadystatechange
+            xhr.onreadystatechange = () => {
+                // console.log(xhr.readyState );
+                if(xhr.readyState === 4 && xhr.status === 200){
+                    document.write("La requête a été traitée.Le document est bien chargée", xhr.responseText);
+                }
+                else {
+                    if(xhr.readyState === 4 && xhr.status === 404){
+                        document.write("Opps, le fichier n'existe pas"); 
+                    }
+
+                }
+            }
+
+            // ou
+
+            
+            // xhr.onerror = () => {
+
+            //     console.log('erreur du au réseau');
+            // }
+
+            // xhr.onload = function () {
+            //     if (xhr.status === 200) {
+            //         document.write("La requête a été traitée.Le document est bien chargée", xhr.responseText);
+            //     } else {
+            //         if (xhr.status === 404) {
+            //             document.write("Opps, le fichier n'existe pas");
+            //         }
+
+            //     }
+            // }
+
+
+            // On envoie notre requete
+            xhr.send();
+        };
+    </script>
+</body>
+
+</html>

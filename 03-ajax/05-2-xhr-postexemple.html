@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX Requete POST avec formulaire</title>
+    <style>
+        textarea {
+
+            width: 500px;
+            display: block;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <form method="post">
+        <label for="">Nom d'utilisateur</label>
+        <div><input type="text" name="utilisateur"></div>
+        <br>
+        <label for="">Comentaire</label>
+        <div></div><textarea name="commentaire" id="" cols="30" rows="10"></textarea></div>
+        <p><button onclick="envoiCommentaire(event)">Envoyer commentaire</button></p>
+    </form>
+
+    <div id="feedback"></div>
+
+
+    <script>
+        function envoiCommentaire(e) {
+            e.preventDefault();
+            // etape 1 : créer notre objet AJAX
+            let xhr = new XMLHttpRequest;
+
+            // Etape 2 : configurer notre objet AJAX
+            let methode = 'POST';
+            let url = './php/message.php';
+            xhr.open(methode, url);
+
+            // Etape 3 : Ecouter les evènements
+            // xhr.onreadystatechange = function() {
+            //     console.log('hi');
+            //     if(this.readyState === 4 && this.status ===200){
+            //         document.getElementById('feedback').innerHTML = this.responseText;
+            //     }
+            // }
+
+            // ou
+            xhr.onload = function () {
+
+                if (this.status === 200) {
+                    document.getElementById('feedback').innerHTML = this.responseText;
+                }
+            }
+
+            // Etape 4: Envoyer notre requête AJAX
+            let formulaire = document.getElementsByTagName('form')[0];
+            let donneesFormulaire = new FormData(formulaire);
+            xhr.send(donneesFormulaire);
+
+            console.log(xhr);
+            // console.log(donneesFormulaire);
+            for (const value of donneesFormulaire.values()) {
+                console.log(value);
+            }
+        }
+    </script>
+</body>
+
+</html>

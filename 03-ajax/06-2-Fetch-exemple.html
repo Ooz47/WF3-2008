@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch : Exemple 1</title>
+</head>
+
+<body>
+
+    <div id="conteneur">
+        <h1>Fetch : Exemple 1</h1>
+
+    </div>
+
+
+    <script>
+        //Fetch retourne une promesse
+    //    let donnees = fetch("http://uneurl");
+        // console.log(donnees);//promise en etat pending en attente
+
+        // si on retape console.log(donnees); dans console ⇒ rejected
+
+
+        // 1 Requete fetch
+        let url ="https://jsonplaceholder.typicode.com/todos/1";
+
+        // Retourne une promesse
+        let reponse = fetch(url);
+        // console.log(reponse);
+        reponse
+            .then((response) => {
+                //objet reponse
+                // document.write(response);
+
+                //correspond à l'objet XMLhttpRequest dans technique précédente
+                // console.log(response);
+                console.log(response.headers.get('content-type'));
+                
+                //Array.from permet d'afficher l'objet response dans un tableau
+                console.log(Array.from(response.headers));
+
+
+                //méthode json() de l'interface Response prend une réponse en paramètre et renvoie une promesse, qui se résout avec le résultat
+                 let JSONDonnees = response.json();
+                //  console.log(JSONDonnees);
+
+                return JSONDonnees;
+                
+            })
+            //data correspond à ce que renvoie la fonction then() précédente
+            .then((data) => {
+                console.log(data);
+
+            })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice xhr</title>
+    <style>
+        textarea {
+            height: 300px;
+            width: 500px;
+            display: block;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button onclick="xhrSucces()">Lance la requete</button>
+    <!-- <button onclick="xhrError()">XHR error</button> -->
+
+    <textarea class="resultat" readonly></textarea>
+
+    <script>
+        //On récupère notre textearea
+        const resultat = document.getElementsByClassName('resultat');
+
+
+        function lanceRequete(url) {
+            let xhr = new XMLHttpRequest();
+            let method = "GET";
+            xhr.open(method, url);
+            xhr.send();
+
+            console.log(xhr);
+            return xhr;
+        }
+
+        function xhrSucces() {
+            let url = "https://openlibrary.org/search.json?q=the+lord+of+the+rings";
+            xhr = lanceRequete(url);
+
+
+            xhr.onerror = () => {
+
+                console.log('erreur du au réseau');
+            }
+
+            xhr.onprogress = (e) => {
+
+                console.log(`Téléchargé ${e.loaded} of ${e.total}`);
+                resultat[0].textContent += "Téléchargé " + e.loaded + " bytes \n";
+                // console.log(resultat);
+                console.log(e);
+            }
+            xhr.onload = () => {
+                // xhr.onloadend = () => {
+                // if(true){
+                if (xhr.status === 200) {
+                    // document.write('Fichier transféré avec succès');
+                    resultat[0].textContent += `Réponse reçu avec succès\n`;
+
+                } else {
+                    console.log('Erreur' + xhr.status);
+                    console.log('Erreur' + xhr);
+                }
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>

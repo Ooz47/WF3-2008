@@ -1,0 +1,11 @@
+<animaux>
+    <animal>
+        <type>chien</type>
+        <race>Berger Malinois</race>
+    </animal>
+    <animal>
+        <type>chien</type>
+        <race>Pittbull</race>
+    </animal>
+    <!-- Commentaire -->
+</animaux>

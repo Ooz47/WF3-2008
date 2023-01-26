@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice Fetch</title>
+</head>
+
+<body>
+
+    <div id="conteneur">
+        <h1>Fetch : exercice</h1>
+<p> Créer un bouton qui au clic affiche 4 posts (titre + commentaire). Puis si on clique de nouveau 4 posts supplémentaires, et ainsi de suite </p>
+<p> Source: https://jsonplaceholder.typicode.com/posts </p>
+    </div>
+
+    <button onclick="chargeCommentaire()">Charge 4 commentaires</button>
+    <!-- ou + l.26 -->
+    <!-- <button >Charge 4 commentaires</button> -->
+
+    <div id="commentaires"></div>
+
+    <script>
+
+// document.getElementsByTagName('button')[0].addEventListener('click',chargeCommentaire);
+
+        var nombreCommentaires = 0;
+        var increment = 4;
+        function chargeCommentaire() {
+
+        let url = "https://jsonplaceholder.typicode.com/posts";
+      
+    
+        fetch(url)
+            .then((res) => {
+                return res.json(); // si tout va bien je récupère résultat au format json
+            })
+            .then((data) => {
+                while(nombreCommentaires<increment){
+                    console.log(data[nombreCommentaires]);
+                    document.getElementById('commentaires').innerHTML += "<div class=\"commentaire\"><b>Titre</b><span>: " + data[nombreCommentaires].title + "</span><br /><b>Commentaire</b><span>: " + data[nombreCommentaires].body + "</span></div><br/>";
+                    nombreCommentaires ++;
+                }
+                increment +=4;
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+            // 
+           
+        }
+    </script>
+</body>
+
+</html>

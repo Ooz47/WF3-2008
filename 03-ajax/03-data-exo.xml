@@ -1,0 +1,17 @@
+<biblio>
+    <livre>
+        <titre>Les Misérables</titre>
+        <anneePublication>1862</anneePublication>
+        <auteur>Victor Hugo</auteur>
+    </livre>
+    <livre>
+        <titre>L'Assomoir</titre>
+        <anneePublication>1877</anneePublication>
+        <auteur>Émile Zola</auteur>
+    </livre>
+    <livre>
+        <titre>David Copperfield</titre>
+        <anneePublication>1850</anneePublication>
+        <auteur>Charles Dickens</auteur>
+    </livre>
+</biblio> 
