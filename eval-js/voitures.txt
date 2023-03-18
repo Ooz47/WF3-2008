@@ -11,7 +11,6 @@
           </div>
           <span class="col-1 suiv">
             <i class="fa fa-caret-right"></i>
-
           </span>
         </div>
         <div class="fiche-technique col-4 col-xl-7 d-flex justify-content-end d-xl-block ">
@@ -35,7 +34,6 @@
           </div>
           <span class="col-1 suiv">
             <i class="fa fa-caret-right"></i>
-
           </span>
         </div>
         <div class="fiche-technique col-4 col-xl-7 d-flex justify-content-end d-xl-block ">
@@ -45,7 +43,6 @@
           <button type="button" class="btn btn-success btn-sm bouton border-0">Réserver et Payer</button>
         </div>
       </div>
-
 
       <div class="voiture row align-items-center py-5">
         <div class="image-voiture align-items-center col-8 col-xl-5 px-3">
@@ -60,7 +57,6 @@
           </div>
           <span class="col-1 suiv">
             <i class="fa fa-caret-right"></i>
-
           </span>
         </div>
         <div class="fiche-technique col-4 col-xl-7 d-flex justify-content-end d-xl-block ">
@@ -84,7 +80,6 @@
           </div>
           <span class="col-1 suiv">
             <i class="fa fa-caret-right"></i>
-
           </span>
         </div>
         <div class="fiche-technique col-4 col-xl-7 d-flex justify-content-end d-xl-block ">
