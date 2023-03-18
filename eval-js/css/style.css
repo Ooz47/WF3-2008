@@ -1,0 +1,191 @@
+/* https://www.whatfontis.com/ */
+/* @font-face {
+    font-family: 'Cabin-Medium';
+    src:url('../fonts/Cabin-Medium.ttf.woff') format('woff'),
+        url('../fonts/Cabin-Medium.ttf.svg#Cabin-Medium') format('svg'),
+        url('../fonts/Cabin-Medium.ttf.eot'),
+        url('../fonts/Cabin-Medium.ttf.eot?#iefix') format('embedded-opentype'); 
+    font-weight: normal;
+    font-style: normal;
+} */
+
+body {
+    /* font-family: 'Cabin-Medium'; */
+    /* font-family: 'Roboto', sans-serif; */
+    font-family: 'Cabin', sans-serif;
+
+}
+
+/*Initiation des variables couleurs*/
+/* https://imagecolorpicker.com/ */
+:root {
+    --blanc: #ffffff;
+    --vertclair: #65b465;
+    --vertfonce: #429842;
+}
+
+/*Global*/
+.h1,
+h1 {
+    font-size: 3rem;
+}
+
+.h2,
+h2 {
+    font-size: 1.2rem;
+    font-weight: 100;
+}
+
+/*Menu*/
+.navbar-toggler {
+    background-color: #f9f9f9;
+    border: #ccc solid 1px;
+
+}
+
+.navbar-toggler.collapsed {
+    background-color: transparent;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28194, 198, 203, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+
+/*header*/
+
+header {
+    background: url('../img/background.jpg');
+    height: 650px;
+    /* background-position: center; */
+    background-position-y: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}
+
+#headerContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+#texte-accueil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* padding-top: 2rem; */
+    color: var(--blanc);
+}
+
+/*Moteur de recherche*/
+#recherche {
+    padding-bottom: 5rem;
+}
+
+#recherche .row {
+    background-color: #ccccccb3;
+
+}
+
+#recherche button {
+    border-radius: 0;
+    background-color: #439843b3;
+    color: var(--blanc)
+}
+
+#recherche button:hover {
+    background-color: var(--vertfonce);
+}
+
+
+.fa-calendar {
+    top: 13px;
+    font-size: 20px;
+    z-index: 1000;
+    margin: 8px 10px 0;
+}
+
+.input-group-append {
+    background-color: #ccc;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+
+}
+
+/*Résultats et tri*/
+#nbreVoitures {
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+#nbreVoitures span {
+    font-size: 1.4rem;
+
+}
+
+#triselect {
+    font-size: .8rem;
+    padding: 5px;
+    background: linear-gradient(360deg, #ccc, white);
+    border: #ccc solid 1px;
+    border-radius: 5px;
+    text-align: end;
+}
+
+/*VOITURES*/
+#voitures i {
+    font-size: 1.7rem;
+    cursor: pointer;
+}
+
+.voiture {
+    border-bottom: 1px solid #cccccc52;
+}
+
+.image-voiture img {
+    max-width: 100%;
+}
+
+.imagesVehicule {
+    display: inline-block
+}
+
+.modele {
+    font-weight: 500;
+    font-size: 1.4rem;
+}
+
+.bouton {
+    background: var(--vertclair);
+}
+
+.descriptif {
+    font-size: .9rem;
+    line-height: 1.5rem;
+}
+
+
+/*AGENCE*/
+#image-agence img {
+    max-width: 100%;
+}
+
+#contact-agence {
+    font-size: .9rem;
+}
+
+@media screen and (min-width : 1200px) {
+
+    #image-agence img {
+        max-height: 150px;
+    }
+
+    /*Pour centrer image background uniquement pour écran xl*/
+    header {
+        background-position: center;
+    }
+}

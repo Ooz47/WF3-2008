@@ -1,0 +1,96 @@
+<div class="voiture row align-items-center py-5">
+        <div class="image-voiture align-items-center col-8 col-xl-5 px-3">
+          <span class="col-1 prec">
+            <i class="fa fa-caret-left"></i>
+          </span>
+          <div class="col-8 imagesVehicule">
+            <img src="./img/vehicule1.png"  alt="vehicule1" />
+            <img src="./img/vehicule2.png"  alt="vehicule1" />
+            <img src="./img/vehicule3.png"  alt="vehicule1" />
+            <img src="./img/vehicule4.png"  alt="vehicule1" />
+          </div>
+          <span class="col-1 suiv">
+            <i class="fa fa-caret-right"></i>
+
+          </span>
+        </div>
+        <div class="fiche-technique col-4 col-xl-7 d-flex justify-content-end d-xl-block ">
+          <div class="modele d-none d-xl-block"> Peugeot 208 </div>
+          <div class="descriptif d-none d-xl-block my-2"> Diesel 5 portes, GPS, AutoRadio, Forfait 1000Km (0.5/km supplémentaire). <br />
+            999€ - Agence de Paris </div>
+          <button type="button" class="btn btn-success btn-sm bouton border-0">Réserver et Payer</button>
+        </div>
+      </div>
+
+      <div class="voiture row align-items-center py-5">
+        <div class="image-voiture align-items-center col-8 col-xl-5 px-3">
+          <span class="col-1 prec">
+            <i class="fa fa-caret-left"></i>
+          </span>
+          <div class="col-8 imagesVehicule">
+            <img src="./img/vehicule2.png"  alt="vehicule1" />
+            <img src="./img/vehicule1.png"  alt="vehicule1" />
+            <img src="./img/vehicule3.png"  alt="vehicule1" />
+            <img src="./img/vehicule4.png"  alt="vehicule1" />
+          </div>
+          <span class="col-1 suiv">
+            <i class="fa fa-caret-right"></i>
+
+          </span>
+        </div>
+        <div class="fiche-technique col-4 col-xl-7 d-flex justify-content-end d-xl-block ">
+          <div class="modele d-none d-xl-block"> Ford Focus 208 </div>
+          <div class="descriptif d-none d-xl-block my-2"> Diesel 5 portes, GPS, AutoRadio, Forfait 1000Km (0.5/km supplémentaire). <br />
+            999€ - Agence de Paris </div>
+          <button type="button" class="btn btn-success btn-sm bouton border-0">Réserver et Payer</button>
+        </div>
+      </div>
+
+
+      <div class="voiture row align-items-center py-5">
+        <div class="image-voiture align-items-center col-8 col-xl-5 px-3">
+          <span class="col-1 prec">
+            <i class="fa fa-caret-left"></i>
+          </span>
+          <div class="col-8 imagesVehicule">
+            <img src="./img/vehicule3.png"  alt="vehicule1" />
+            <img src="./img/vehicule2.png"  alt="vehicule1" />
+            <img src="./img/vehicule1.png"  alt="vehicule1" />
+            <img src="./img/vehicule4.png"  alt="vehicule1" />
+          </div>
+          <span class="col-1 suiv">
+            <i class="fa fa-caret-right"></i>
+
+          </span>
+        </div>
+        <div class="fiche-technique col-4 col-xl-7 d-flex justify-content-end d-xl-block ">
+          <div class="modele d-none d-xl-block"> Audi A1 </div>
+          <div class="descriptif d-none d-xl-block my-2"> Diesel 5 portes, GPS, AutoRadio, Forfait 1000Km (0.5/km supplémentaire). <br />
+            999€ - Agence de Paris </div>
+          <button type="button" class="btn btn-success btn-sm bouton border-0">Réserver et Payer</button>
+        </div>
+      </div>
+
+      <div class="voiture row align-items-center py-5">
+        <div class="image-voiture align-items-center col-8 col-xl-5 px-3">
+          <span class="col-1 prec">
+            <i class="fa fa-caret-left"></i>
+          </span>
+          <div class="col-8 imagesVehicule">
+            <img src="./img/vehicule4.png"  alt="vehicule1" />
+            <img src="./img/vehicule2.png"  alt="vehicule1" />
+            <img src="./img/vehicule3.png"  alt="vehicule1" />
+            <img src="./img/vehicule1.png"  alt="vehicule1" />
+          </div>
+          <span class="col-1 suiv">
+            <i class="fa fa-caret-right"></i>
+
+          </span>
+        </div>
+        <div class="fiche-technique col-4 col-xl-7 d-flex justify-content-end d-xl-block ">
+          <div class="modele d-none d-xl-block"> Opel Mokka </div>
+          <div class="descriptif d-none d-xl-block my-2"> Diesel 5 portes, GPS, AutoRadio, Forfait 1000Km (0.5/km supplémentaire). <br />
+            999€ - Agence de Paris </div>
+          <button type="button" class="btn btn-success btn-sm bouton border-0">Réserver et Payer</button>
+        </div>
+      </div>
